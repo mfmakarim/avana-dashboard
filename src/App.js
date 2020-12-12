@@ -16,17 +16,19 @@ const App = () => {
     <Router>
         <div className='App'>
             <SideBar/>
-            <Switch>
-                <Route exact path='/'>
-                    <DashboardPage/>
-                </Route>
-                <Route path='/my-orders'>
-                    <MyOrdersPage/>
-                </Route>
-                <Route path='/my-products'>
-                    <MyProductsPage/>
-                </Route>
-            </Switch>
+            <div className='page-container'>
+                <Switch>
+                    <Route exact path='/'>
+                        <DashboardPage/>
+                    </Route>
+                    <Route path='/my-orders'>
+                        <MyOrdersPage/>
+                    </Route>
+                    <Route path='/my-products'>
+                        <MyProductsPage/>
+                    </Route>
+                </Switch>
+            </div>
         </div>
     </Router>
   )
