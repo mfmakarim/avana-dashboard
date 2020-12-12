@@ -33,8 +33,18 @@ const SideBar = () => {
                                     <li className='nav-item'>
                                         <Link to='/my-product/add'>Add Product</Link>
                                     </li>
-                                    <li className='nav-item'>
-                                        <Link to='/my-products'>Products</Link>
+                                    <li className='nav-item has-child child-open'>
+                                        <div>Products</div>
+                                        <div className='nav-item-child'>
+                                            <ul>
+                                                <li className='nav-item'>
+                                                    <Link to='/my-products'>List</Link>
+                                                </li>
+                                                <li className='nav-item'>
+                                                    <Link to='/my-products'>Category</Link>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </li>
                                 </ul>
                             </div>
