@@ -1,4 +1,4 @@
-[
+export const menus = [
     { 
         "id": "dashboard", 
         "isShowed": true, 
@@ -215,5 +215,6 @@
         { "id": "avachat", "isShowed": false, "isAllowed": false }
       ]
     }
-  ]
+]
+
   
