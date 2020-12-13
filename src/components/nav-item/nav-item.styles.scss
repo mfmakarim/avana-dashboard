@@ -2,60 +2,64 @@
     .nav ul{
         list-style: none;
         padding-left: 0;
-        .nav-item{
-            display: block;
-            padding: 15px 25px;
-            color: #828282;
-            text-transform: capitalize;
+        
+    }
 
-            a{
+    .nav-item{
+        display: block;
+        padding: 15px 25px;
+        color: #828282;
+        text-transform: capitalize;
+
+        &.child{
+            padding-left: 35px;
+            font-size: 14px;
+
+            &.open{
                 display: block;
-                color: #828282;
-                text-decoration: none;   
-                
-                &:hover{
-                    color: #fff;
-                }
             }
+        }
 
-            &.active a{
+        a{
+            display: block;
+            color: #828282;
+            text-decoration: none;   
+            
+            &:hover{
                 color: #fff;
             }
+        }
 
-            &.has-child{
-                position: relative;
+        &.active a{
+            color: #fff;
+        }
+
+        &.has-child{
+            position: relative;
+
+            &>div:first-child:hover{
+                color: #fff;
+                cursor: pointer;
+            }
+
+            &:before{
+                content: '▼';
+                position: absolute;
+                right: 0;
+                top: 0;
+                margin-top: 20px;
+                margin-right: 25px;
+                font-size: 10px;
+                transform: rotate(-90deg);
+            }
+
+            &.child-open{
+                &:before{
+                    transform: rotate(0deg);
+                }
 
                 &>ul {
-                    display: none;
-                }
-
-                &>ul .nav-item:first-child{
-                    margin-top: 15px;
-                }
-                &>div:first-child:hover{
-                    color: #fff;
-                    cursor: pointer;
-                }
-
-                &:before{
-                    content: '▼';
-                    position: absolute;
-                    right: 0;
-                    top: 0;
-                    margin-top: 20px;
-                    margin-right: 25px;
-                    font-size: 10px;
-                    transform: rotate(-90deg);
-                }
-
-                &.child-open{
-                    &:before{
-                        transform: rotate(0deg);
-                    }
-
-                    &>ul {
-                        display: block;
-                    }
+                    display: block;
                 }
             }
         }
