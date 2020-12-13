@@ -14,10 +14,11 @@
         &.child{
             padding-left: 35px;
             font-size: 14px;
+        }
 
-            &.open{
-                display: block;
-            }
+        &.child-child{
+            padding-left: 45px;
+            font-size: 14px;
         }
 
         a{
