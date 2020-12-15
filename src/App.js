@@ -8,7 +8,8 @@ import {
 import './App.css';
 
 import SideBar from './components/sidebar/sidebar.component';
-import { Dashboard, Orders, Agent, MyPurchase, Products, ProductCategories} from './pages/pages-list';
+import { Orders, Agent, MyPurchase, Products, ProductCategories} from './pages/pages-list';
+import Dashboard from './pages/dashboard/dashboard.component';
 
 const App = () => {
   return(

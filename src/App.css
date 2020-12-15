@@ -6,5 +6,8 @@
   background-color: #191a1f;
   width: 100%;
   color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
