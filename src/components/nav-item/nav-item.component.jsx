@@ -4,6 +4,8 @@ import { menus } from '../../settings/menu-settings';
 import { connect } from 'react-redux';
 import { getNavItem, getNavItemChild, setNavOpen } from '../../redux/nav/nav.actions';
 
+import _ from 'lodash';
+
 import './nav-item.styles.scss';
 
 class NavItem extends React.Component {
@@ -18,7 +20,7 @@ class NavItem extends React.Component {
     arrayRemove(arr, value) { 
     
         return arr.filter(function(ele){ 
-            return ele != value; 
+            return ele !== value; 
         });
     }
     
@@ -26,17 +28,18 @@ class NavItem extends React.Component {
     handleNavItemClick = (e, id, childs) => {
         e.preventDefault();
 
-        var { navOpen } = this.props;
+        let { navOpen } = this.props;
+        let idInNavOpen = _.indexOf(navOpen, id);
 
-        if(Object.values(navOpen).indexOf(id) > -1){
+        if(idInNavOpen > -1){
+            //if exist return new array with removed id then update state
             navOpen = this.arrayRemove(navOpen, id);
             this.props.setNavOpen(navOpen);
         }else{
-            navOpen.push(id);
-            this.props.setNavOpen(navOpen);
+            //if not exist return new array with id as additional item then update state
+            let newNavOpen = _.concat(navOpen, id);
+            this.props.setNavOpen(newNavOpen);
         }
-
-        console.log(navOpen);
     }
 
     render() {
@@ -49,8 +52,8 @@ class NavItem extends React.Component {
                         onClick={ e => this.handleNavItemClick(e, id, childs) }>
                             <Link to={id}>{id.replace('-', ' ')}</Link>
                         </div>
-
-                        { Object.values(navOpen).indexOf(id) > -1 && childs ? 
+                        
+                        {_.indexOf(navOpen, id) > -1 && childs ? 
                             childs.map(({ id, childs}) => (
                                 <div key={id}>
                                     <div className='nav-item child'
@@ -58,7 +61,7 @@ class NavItem extends React.Component {
                                         <Link to={id}>{id.replace('-', ' ')}</Link>
                                     </div>
 
-                                    { Object.values(navOpen).indexOf(id) > -1 && childs ?
+                                    { _.indexOf(navOpen, id) > -1 && childs ?
                                         childs.map(({ id, childs }) => (
                                             <div key={id}>
                                                 <div className='nav-item child-child'
