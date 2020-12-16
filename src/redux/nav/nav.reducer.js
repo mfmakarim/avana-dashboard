@@ -13,6 +13,11 @@ const navReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 navItem: action.payload
             }
+        case NavActionTypes.SET_NAV_ITEM:
+            return {
+                ...state,
+                navItem: action.payload
+            }
         case NavActionTypes.GET_NAV_ITEM_CHILD:
             return {
                 ...state,

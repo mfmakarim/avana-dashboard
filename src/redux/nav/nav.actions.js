@@ -5,6 +5,11 @@ export const getNavItem = navItem => ({
     payload: navItem
 });
 
+export const setNavItem = navItem => ({
+    type: NavActionTypes.SET_NAV_ITEM,
+    payload: navItem
+});
+
 export const getNavItemChild = navItemChild => ({
     type: NavActionTypes.GET_NAV_ITEM_CHILD,
     payload: navItemChild

@@ -11,6 +11,7 @@ import SideBar from './components/sidebar/sidebar.component';
 import { Orders, Agent, MyPurchase, Products, ProductCategories} from './pages/pages-list';
 import Dashboard from './pages/dashboard/dashboard.component';
 
+
 const App = () => {
   return(
     <Router>

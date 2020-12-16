@@ -29,7 +29,7 @@ class NavItem extends React.Component {
         e.preventDefault();
 
         let { navOpen } = this.props;
-        let idInNavOpen = _.indexOf(navOpen, id);
+        const idInNavOpen = _.indexOf(navOpen, id);
 
         if(idInNavOpen > -1){
             //if exist return new array with removed id then update state
@@ -37,15 +37,16 @@ class NavItem extends React.Component {
             this.props.setNavOpen(navOpen);
         }else{
             //if not exist return new array with id as additional item then update state
-            let newNavOpen = _.concat(navOpen, id);
+            const newNavOpen = _.concat(navOpen, id);
             this.props.setNavOpen(newNavOpen);
         }
     }
 
     render() {
         const { navItem, navOpen } = this.props;
+        const navItemChange = _.filter(navItem, ['isShowed', true]);
         return(
-                navItem.map(({ id, childs }) => (
+                navItemChange.map(({ id, childs }) => (
                     <div key={id}>
                         <div 
                         className='nav-item'
@@ -58,7 +59,7 @@ class NavItem extends React.Component {
                                 <div key={id}>
                                     <div className='nav-item child'
                                     onClick={ e => this.handleNavItemClick(e, id, childs) }>
-                                        <Link to={id}>{id.replace('-', ' ')}</Link>
+                                        <Link to={id}>{id.replace('-', ' ')} test</Link>
                                     </div>
 
                                     { _.indexOf(navOpen, id) > -1 && childs ?
